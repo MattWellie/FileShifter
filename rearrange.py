@@ -34,10 +34,13 @@ def move_bams(bam_files):
         shutil.move(os.path.join(path_to_data,x), os.path.join(dir_list["BAM_dir"], x))
 
 def identify_vcfs(MiSeq_file_list):
+    ''' This function should identify all non-genome .vcf files
+        File name for genomic vcfs are XXX.genome.vcf '''
     for x in MiSeq_file_list:
         if x[-4:] == ".vcf":
-            vcf_files.append(x)
-
+			if x.split('.')[1] == 'vcf:
+				vcf_files.append(x)
+				
 #Is file name storage important? 
 def identify_patients(vcf_list):
     ''' This method accomplishes two things;
