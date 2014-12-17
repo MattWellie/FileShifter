@@ -14,7 +14,7 @@ def make_first_dirs(target_run):
     dir_list["VCF_run1"] = os.path.join(dir_list["VCF_dir"], "Run 1")
     dir_list["VCF_run2"] = os.path.join(dir_list["VCF_dir"], "Run 2")
     dir_list["BAM_dir"] = os.path.join(base_file_path,target_run+"_BAM")
-    dir_list["BAM_coverage"] = os.path.join(dir_list["BAM_dir"], str(target_run+" coverage report")
+    dir_list["BAM_coverage"] = os.path.join(dir_list["BAM_dir"], str(target_run+" coverage report"))
     dir_list["neg_dir"] = os.path.join(base_file_path, "negative")
     for x in dir_list.keys():
         os.mkdir(dir_list[x])
@@ -38,7 +38,7 @@ def identify_vcfs(MiSeq_file_list):
         File name for genomic vcfs are XXX.genome.vcf '''
     for x in MiSeq_file_list:
         if x[-4:] == ".vcf":
-			if x.split('.')[1] == 'vcf:
+			if x.split('.')[1] == 'vcf':
 				vcf_files.append(x)
 				
 #Is file name storage important? 
@@ -78,7 +78,7 @@ def sort_vcfs(vcf_files):
             shutil.move(os.path.join(path_to_data, x), os.path.join(dir_list["VCF_run1"], new_filename))
         elif file_name_list[0][-2:] == '-2':
             #move to 2
-            shutil.move(os.path.join(path_to_data, x), os.path.join(dir_list["VCF_run2"], new_filename
+            shutil.move(os.path.join(path_to_data, x), os.path.join(dir_list["VCF_run2"], new_filename))
         
 #Assumes starting position is "S:\MiSeq_data\Truseq_custom_amplicon\CRUK_SMP\SMP2\"
 
